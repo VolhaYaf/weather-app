@@ -1,18 +1,11 @@
 const api = {
-//link
 endpoint: 'https://api.openweathermap.org/data/2.5/',
-//api key
 key: 'f16b6d53265964560049924662ca1c72'
 }
-
-//console.log(api);
 
 const input = document.querySelector('#input');
 input.addEventListener('keydown', enter);
 
-/*function enter() {
-    console.log('Hey!');
-}*/
 
 function enter(e) {
     if(e.keyCode === 13) {
@@ -22,14 +15,7 @@ function enter(e) {
 
     async function getInfo(data) {
         const result = await fetch(`${api.endpoint}weather?q=${data}&units=metric&appID=${api.key}`);
-        /*console.log(result);*/
         const resultReceived = await result.json();
-        /*console.log(resultReceived);
-        console.log(resultReceived.main.temp);
-        console.log(resultReceived.main.temp_min);
-        console.log(resultReceived.name);
-        console.log(resultReceived.sys.country);
-        console.log(resultReceived.weather[0].description);*/
         displayResult(resultReceived);
 }
 
